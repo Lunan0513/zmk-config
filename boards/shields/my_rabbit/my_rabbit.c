@@ -188,13 +188,12 @@ static lv_obj_t *my_rabbit_init(lv_disp_t *disp) {
     // 检测是左半边还是右半边
     bool is_left = zmk_split_get_role() == 0;
 
-    lv_img_dsc_t img_dsc = {
-        .header.cf = LV_IMG_CF_RAW,
-        .header.w = 160,
-        .header.h = 68,
-        .data_size = 1360,
-        .data = is_left ? left_rabbit_data : right_rabbit_data,
-    };
+    static lv_img_dsc_t img_dsc;
+    img_dsc.header.cf = LV_IMG_CF_RAW;
+    img_dsc.header.w = 160;
+    img_dsc.header.h = 68;
+    img_dsc.data_size = 1360;
+    img_dsc.data = is_left ? left_rabbit_data : right_rabbit_data;
 
     lv_obj_t *img = lv_img_create(scr);
     lv_img_set_src(img, &img_dsc);
