@@ -1,0 +1,9 @@
+if SHIELD_MY_RABBIT
+
+config ZMK_DISPLAY
+    default y
+
+config ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
+    default y
+
+endif
