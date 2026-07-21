@@ -1,8 +1,8 @@
-#include <zmk/display.h>
 #include <lvgl.h>
+#include <zmk/display.h>
 #include <zmk/split/bluetooth/service.h>
 
-// 左半边兔子图 (160x68)
+// 左半边兔子图 (160x68, 1360 bytes)
 static const unsigned char left_rabbit_data[] = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x60, 0x01, 0x00, 0x18, 0x00, 0x00,
     0x03, 0xf8, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x60, 0x01,
@@ -91,7 +91,7 @@ static const unsigned char left_rabbit_data[] = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0xf0, 0x7f, 0x80, 0x00, 0x07, 0x00, 0xf8
 };
 
-// 右半边兔子图 (160x68)
+// 右半边兔子图 (160x68, 1360 bytes)
 static const unsigned char right_rabbit_data[] = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0e,
     0x7f, 0x8b, 0xe0, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -180,26 +180,20 @@ static const unsigned char right_rabbit_data[] = {
     0x00, 0x02, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x0f, 0xf0, 0x60, 0x20, 0x10, 0x02, 0x7f, 0x00
 };
 
-// 左边显示左图，右边显示右图
-static lv_obj_t *my_rabbit_init(lv_disp_t *disp) {
-    lv_obj_t *scr = lv_disp_get_scr_act(disp);
-    lv_obj_clean(scr);
+static const lv_img_dsc_t img_dsc_left = {
+    .header.cf = LV_IMG_CF_RAW,
+    .header.w = 160,
+    .header.h = 68,
+    .data_size = 1360,
+    .data = left_rabbit_data,
+};
 
-    // 检测是左半边还是右半边
-    bool is_left = zmk_split_get_role() == 0;
+lv_obj_t *zmk_display_status_screen() {
+    lv_obj_t *screen = lv_obj_create(NULL);
 
-    static lv_img_dsc_t img_dsc;
-    img_dsc.header.cf = LV_IMG_CF_RAW;
-    img_dsc.header.w = 160;
-    img_dsc.header.h = 68;
-    img_dsc.data_size = 1360;
-    img_dsc.data = is_left ? left_rabbit_data : right_rabbit_data;
+    lv_obj_t *img = lv_img_create(screen);
+    lv_img_set_src(img, &img_dsc_left);
+    lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
 
-    lv_obj_t *img = lv_img_create(scr);
-    lv_img_set_src(img, &img_dsc);
-    lv_obj_set_pos(img, 0, 0);
-
-    return scr;
+    return screen;
 }
-
-ZMK_DISPLAY_STATUS_SCREEN(my_rabbit_screen, my_rabbit_init);
