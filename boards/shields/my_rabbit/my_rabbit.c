@@ -1,6 +1,5 @@
 #include <lvgl.h>
 #include <zmk/display.h>
-#include <zmk/split/bluetooth/service.h>
 
 // 左半边兔子图 (160x68, 1360 bytes)
 static const unsigned char left_rabbit_data[] = {
@@ -201,11 +200,8 @@ static const lv_img_dsc_t right_image = {
 lv_obj_t *zmk_display_status_screen() {
     lv_obj_t *screen = lv_obj_create(NULL);
 
-    bool is_left = zmk_split_get_role() == 0;
-    const lv_img_dsc_t *img_data = is_left ? &left_image : &right_image;
-
     lv_obj_t *img = lv_img_create(screen);
-    lv_img_set_src(img, img_data);
+    lv_img_set_src(img, &left_image);
     lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
 
     return screen;
