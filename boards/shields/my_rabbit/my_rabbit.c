@@ -200,9 +200,15 @@ static const lv_img_dsc_t right_image = {
 lv_obj_t *zmk_display_status_screen() {
     lv_obj_t *screen = lv_obj_create(NULL);
 
-    lv_obj_t *img = lv_img_create(screen);
-    lv_img_set_src(img, &left_image);
-    lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
+    /* 画一个白色背景 */
+    lv_obj_set_style_bg_color(screen, lv_color_white(), LV_STATE_DEFAULT);
+
+    /* 画一个黑色矩形测试显示 */
+    lv_obj_t *rect = lv_obj_create(screen);
+    lv_obj_set_size(rect, 80, 34);
+    lv_obj_set_style_bg_color(rect, lv_color_black(), LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(rect, 0);
+    lv_obj_align(rect, LV_ALIGN_CENTER, 0, 0);
 
     return screen;
 }
