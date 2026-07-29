@@ -116,6 +116,13 @@
             key-positions = <45 46>;
             bindings = <&kp DOWN>;
         };
+
+        // . DOT
+        combo_5 {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp DOT>;
+        };
     };
 
 };
