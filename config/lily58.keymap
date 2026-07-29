@@ -78,4 +78,43 @@
             status = "reserved";
         };
     };
+
+    combos {
+        compatible = "zmk,combos";
+
+        // 同时按 P + - → 回车
+        combo_enter {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&kp RET>;
+        };
+
+        // 同时按 U + I → 上方向键
+        combo_up {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp UP>;
+        };
+
+        // 同时按 H + J → 左方向键
+        combo_left {
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+            bindings = <&kp LEFT>;
+        };
+
+        // 同时按 K + L → 右方向键
+        combo_right {
+            timeout-ms = <50>;
+            key-positions = <32 33>;
+            bindings = <&kp RIGHT>;
+        };
+
+        // 同时按 N + M → 下方向键
+        combo_down {
+            timeout-ms = <50>;
+            key-positions = <44 45>;
+            bindings = <&kp DOWN>;
+        };
+    };
 };
