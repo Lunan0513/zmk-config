@@ -123,6 +123,13 @@
             key-positions = <0 1>;
             bindings = <&kp GRAVE>;
         };
+
+        // DELETE
+        combo_6 {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp DEL>;
+        };
     };
 
 };
