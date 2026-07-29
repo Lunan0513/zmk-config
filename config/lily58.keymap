@@ -82,47 +82,40 @@
     combos {
         compatible = "zmk,combos";
 
-        // 测试：同时按 D + F → ESC（左手，验证 combo 功能可用）
-        combo_test {
-            timeout-ms = <80>;
-            key-positions = <27 28>;
-            bindings = <&kp ESC>;
-            layers = <0>;
-        };
-
-        // 同时按 P + - → 回车
-        combo_enter {
+        // ENTER
+        combo_0 {
             timeout-ms = <50>;
             key-positions = <22 23>;
             bindings = <&kp RET>;
         };
 
-        // 同时按 U + I → 上方向键
-        combo_up {
+        // ↑ UP
+        combo_1 {
             timeout-ms = <50>;
             key-positions = <19 20>;
             bindings = <&kp UP>;
         };
 
-        // 同时按 H + J → 左方向键
-        combo_left {
+        // ← LEFT
+        combo_2 {
             timeout-ms = <50>;
             key-positions = <30 31>;
             bindings = <&kp LEFT>;
         };
 
-        // 同时按 K + L → 右方向键
-        combo_right {
+        // → RIGHT
+        combo_3 {
             timeout-ms = <50>;
-            key-positions = <32 33>;
+            key-positions = <31 32>;
             bindings = <&kp RIGHT>;
         };
 
-        // 同时按 N + M → 下方向键
-        combo_down {
+        // ↓ DOWN
+        combo_4 {
             timeout-ms = <50>;
-            key-positions = <44 45>;
+            key-positions = <45 46>;
             bindings = <&kp DOWN>;
         };
     };
+
 };
