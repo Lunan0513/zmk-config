@@ -117,11 +117,11 @@
             bindings = <&kp DOWN>;
         };
 
-        // . DOT
+        // ` GRAVE
         combo_5 {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            bindings = <&kp DOT>;
+            bindings = <&kp GRAVE>;
         };
     };
 
