@@ -82,6 +82,14 @@
     combos {
         compatible = "zmk,combos";
 
+        // 测试：同时按 D + F → ESC（左手，验证 combo 功能可用）
+        combo_test {
+            timeout-ms = <80>;
+            key-positions = <27 28>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+
         // 同时按 P + - → 回车
         combo_enter {
             timeout-ms = <50>;
