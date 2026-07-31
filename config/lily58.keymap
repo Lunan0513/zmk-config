@@ -89,46 +89,46 @@
             bindings = <&kp RET>;
         };
 
-        // ↑ UP
-        combo_1 {
-            timeout-ms = <50>;
-            key-positions = <19 20>;
-            bindings = <&kp UP>;
-        };
-
-        // ← LEFT
-        combo_2 {
-            timeout-ms = <50>;
-            key-positions = <30 31>;
-            bindings = <&kp LEFT>;
-        };
-
-        // → RIGHT
-        combo_3 {
-            timeout-ms = <50>;
-            key-positions = <31 32>;
-            bindings = <&kp RIGHT>;
-        };
-
-        // ↓ DOWN
-        combo_4 {
-            timeout-ms = <50>;
-            key-positions = <45 46>;
-            bindings = <&kp DOWN>;
-        };
-
         // ` GRAVE
-        combo_5 {
+        combo_1 {
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp GRAVE>;
         };
 
         // = EQUAL
-        combo_6 {
+        combo_2 {
             timeout-ms = <50>;
             key-positions = <9 10>;
             bindings = <&kp EQUAL>;
+        };
+
+        // ↑ UP
+        combo_3 {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            bindings = <&kp UP>;
+        };
+
+        // ← LEFT
+        combo_4 {
+            timeout-ms = <50>;
+            key-positions = <31 32>;
+            bindings = <&kp LEFT>;
+        };
+
+        // → RIGHT
+        combo_5 {
+            timeout-ms = <50>;
+            key-positions = <32 33>;
+            bindings = <&kp RIGHT>;
+        };
+
+        // ↓ DOWN
+        combo_6 {
+            timeout-ms = <50>;
+            key-positions = <45 46>;
+            bindings = <&kp DOWN>;
         };
     };
 
