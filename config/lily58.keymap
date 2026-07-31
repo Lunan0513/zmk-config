@@ -127,7 +127,7 @@
         // ↓ DOWN
         combo_6 {
             timeout-ms = <50>;
-            key-positions = <45 46>;
+            key-positions = <46 47>;
             bindings = <&kp DOWN>;
         };
     };
