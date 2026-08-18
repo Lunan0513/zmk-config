@@ -12,13 +12,13 @@
 
 / {
     behaviors {
-        // 长按 500ms = shift 版本 (ZMK hold-tap 参数顺序: 第一个=长按, 第二个=点按)
+        // 长按 250ms = shift 版本 (ZMK hold-tap 参数顺序: 第一个=长按, 第二个=点按)
         shift_hold: shift_hold {
             compatible = "zmk,behavior-hold-tap";
             label = "SHIFT_HOLD";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <500>;
+            tapping-term-ms = <250>;
             bindings = <&kp>, <&kp>;
         };
     };
