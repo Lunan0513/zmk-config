@@ -11,6 +11,18 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    behaviors {
+        // 点按 = 原键, 长按 150ms = shift 版本
+        shift_hold: shift_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_HOLD";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -24,10 +36,10 @@
 // Note: Silakka54 has 54 keys - the 4 positions marked n/a are not present (inner thumb + encoder positions)
             display-name = "Base";
             bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4 &kp N5                     &kp N6  &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
-&kp TAB   &kp Q  &kp W  &kp E    &kp R  &kp T                      &kp Y   &kp U    &kp I     &kp O   &kp P    &kp MINUS
-&kp LCTRL &kp A  &kp S  &kp D    &kp F  &kp G                      &kp H   &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V  &kp B  &none     &none     &kp N   &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+&kp ESC   &shift_hold N1 EXCL &shift_hold N2 AT &kp N3   &kp N4 &kp N5                     &shift_hold N6 CARET &kp N7   &kp N8    &shift_hold N9 LPAR &shift_hold N0 RPAR &kp GRAVE
+&kp TAB   &kp Q  &kp W  &kp E    &kp R  &kp T                      &kp Y   &kp U    &kp I     &kp O   &kp P    &shift_hold MINUS UNDER
+&kp LCTRL &kp A  &kp S  &kp D    &kp F  &kp G                      &kp H   &kp J    &kp K     &kp L   &shift_hold SEMI COLON &shift_hold SQT DQT
+&kp LSHFT &kp Z  &kp X  &kp C    &kp V  &kp B  &none     &none     &kp N   &kp M    &shift_hold COMMA LT &shift_hold DOT GT &shift_hold FSLH QUESTION &kp RSHFT
                         &kp LGUI &mo 1  &kp SPACE &none  &none     &kp RET &mo 2    &kp BSPC
             >;
         };
