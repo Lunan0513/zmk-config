@@ -2,4 +2,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@3cf9006a9377f21c99e944e29e2a507d8c3e9069  # v0.3 tag, 锁定版本防止固件意外变化
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@edf5c0814fd3ea202e43aad2d68fd32e882a518c  # v0.3 tag 指向的 commit, 锁定版本防止固件意外变化
